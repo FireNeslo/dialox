@@ -1,0 +1,9 @@
+{
+  "name": "dialox",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "budo": "^9.2.1"
+  }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+  </head>
+  <body>
+    <script src="/lib/params.js"></script>
+    <form>
+      <input type="email" name="email">
+      <input type="password" name="password">
+      <input type="submit" value="Save">
+    </form>
+    <script>
+      var params = params(location.search.slice(1))
+      var form = document.querySelector('form')
+
+      form.addEventListener('submit', event => {
+        event.preventDefault()
+
+        var data = new FormData(event.target)
+        var query = Array.from(data).map(param => param.join('=')).join('&')
+
+        location.href = [params.origin, query].join('?')
+      })
+    </script>
+  </body>
+</html>
