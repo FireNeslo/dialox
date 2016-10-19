@@ -5,5 +5,8 @@
   "license": "MIT",
   "devDependencies": {
     "budo": "^9.2.1"
+  },
+  "dependencies": {
+    "qs": "^6.3.0"
   }
 }
