@@ -1,10 +1,15 @@
 {
   "name": "dialox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
+  "browserify": {
+    "transform": ["babelify"]
+  },
   "devDependencies": {
-    "budo": "^9.2.1"
+    "budo": "^9.2.1",
+    "babel-preset-es2015": "^6.18.0",
+    "babelify": "^7.3.0"
   },
   "dependencies": {
     "qs": "^6.3.0"
