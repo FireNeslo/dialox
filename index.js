@@ -5,6 +5,12 @@ const params = require('./lib/params')
 const types = {popup, dialog}
 
 module.exports = function dialox(url='', data={}, options={}) {
+  if(typeof url === 'object') {
+    return function configured(curl, options) {
+      return dialox(curl, options, url)
+    }
+  }
+
   var callback = options.callback || location.origin
   var open = types[options.type] || ('ontouchstart' in window ? popup : dialog)
 
