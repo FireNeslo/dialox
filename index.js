@@ -21,7 +21,7 @@ module.exports = function dialox(url='', data={}, options={}) {
         var href = modal.location.href
         if(href && href.indexOf(callback) > -1) {
           resolve(params(modal.location.search.slice(1)))
-          ctrl[1].close()
+          if(!options.type) ctrl[1].close()
         }
       } catch(error) {
         /* noop */
