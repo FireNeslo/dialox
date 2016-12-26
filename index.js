@@ -13,15 +13,15 @@ module.exports = function dialox(url='', data={}, options={}) {
     var query = params(data) + (search?('&'+params(params(search))):'')
     var ctrl = open(domain + '?' + query, options)
     var modal = ctrl[0]
-
     requestAnimationFrame(function poll() {
       if(modal.closed) {
         return reject(new Error('Window was closed.'))
       }
       try {
-        if(callback === modal.location.origin) {
+        var href = modal.location.href
+        if(href && href.indexOf(callback) > -1) {
           resolve(params(modal.location.search.slice(1)))
-          // ctrl.close()
+          ctrl[1].close()
         }
       } catch(error) {
         /* noop */
