@@ -11,8 +11,8 @@ module.exports = function dialox(url='', data={}, options={}) {
   return new Promise((resolve, reject) => {
     var [domain, search] = url.split('?')
     var query = params(data) + (search?('&'+params(params(search))):'')
-    var modal = options.type
     var ctrl = open(domain + '?' + query, options)
+    var modal = ctrl[0]
 
     requestAnimationFrame(function poll() {
       if(modal.closed) {
