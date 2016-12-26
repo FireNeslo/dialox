@@ -12,7 +12,7 @@ module.exports = function dialox(url='', data={}, options={}) {
     var [domain, search] = url.split('?')
     var query = params(data) + (search?('&'+params(params(search))):'')
     var ctrl = open(domain + '?' + query, options)
-    var modal = ctrl[0]
+    var modal = options.type || ctrl[0]
     requestAnimationFrame(function poll() {
       if(modal.closed) {
         return reject(new Error('Window was closed.'))
