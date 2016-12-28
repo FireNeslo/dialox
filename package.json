@@ -1,10 +1,12 @@
 {
   "name": "dialox",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "license": "MIT",
   "browserify": {
-    "transform": ["babelify"]
+    "transform": [
+      "babelify"
+    ]
   },
   "devDependencies": {
     "budo": "^9.2.1",
