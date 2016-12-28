@@ -26,7 +26,12 @@ module.exports = function dialox(url='', data={}, options={}) {
       try {
         var href = modal.location.href
         if(href && href.indexOf(callback) > -1) {
-          resolve(params(modal.location.search.slice(1)))
+          var data = params(modal.location.search.slice(1))
+          if(data.error) {
+            reject(data)
+          } else {
+            resolve(data)
+          }
           if(!options.type) ctrl[1].close()
         }
       } catch(error) {
