@@ -48,7 +48,7 @@ module.exports = function dialox(url='', data={}, options={}) {
         if(href && href.indexOf(callback) > -1) {
           var data = params(modal.location.search.slice(1))
           if(data.error) {
-            reject(data)
+            reject(Object.assign(new Error(data.error), data))
           } else {
             resolve(data)
           }
